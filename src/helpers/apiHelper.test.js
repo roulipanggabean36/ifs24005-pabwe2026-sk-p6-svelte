@@ -82,3 +82,11 @@ describe('apiHelper', () => {
     await expect(apiRequest('/x')).rejects.toThrow('Permintaan gagal (502)')
   })
 })
+
+describe('apiHelper priority', () => {
+  it('request API memakai priority low agar tidak masuk rantai kritis render', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(mockFetchResponse({ status: 'success' })))
+    await apiRequest('/x')
+    expect(fetch.mock.calls[0][1].priority).toBe('low')
+  })
+})

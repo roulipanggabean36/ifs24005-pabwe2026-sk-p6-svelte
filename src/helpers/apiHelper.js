@@ -24,6 +24,7 @@ export const apiRequest = async (endpoint, { method = 'GET', body, auth = true }
   const response = await fetch(`${baseUrl()}${endpoint}`, {
     method,
     headers,
+    priority: 'low',
     body: body === undefined ? undefined : isForm ? body : JSON.stringify(body)
   })
 
