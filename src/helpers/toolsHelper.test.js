@@ -1,16 +1,16 @@
-vi.mock('sweetalert2', () => ({ default: { fire: vi.fn() } }))
+﻿vi.mock('sweetalert2', () => ({ default: { fire: vi.fn() } }))
 
 import Swal from 'sweetalert2'
 import { showSuccess, showError, confirmAction, formatDate, resolveImageUrl } from './toolsHelper'
 
 describe('toolsHelper', () => {
-  it('showSuccess memanggil Swal ikon success', () => {
-    showSuccess('ok')
+  it('showSuccess memanggil Swal ikon success', async () => {
+    await showSuccess('ok')
     expect(Swal.fire).toHaveBeenCalledWith(expect.objectContaining({ icon: 'success', text: 'ok' }))
   })
 
-  it('showError memanggil Swal ikon error', () => {
-    showError('gagal')
+  it('showError memanggil Swal ikon error', async () => {
+    await showError('gagal')
     expect(Swal.fire).toHaveBeenCalledWith(expect.objectContaining({ icon: 'error', text: 'gagal' }))
   })
 

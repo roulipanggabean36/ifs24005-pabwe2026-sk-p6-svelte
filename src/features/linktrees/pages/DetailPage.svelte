@@ -1,4 +1,4 @@
-﻿<script>
+<script>
   import { onMount } from 'svelte'
   import { ArrowLeft, Link as LinkIcon, Pencil, Plus, Trash2, Image as ImageIcon } from 'lucide-svelte'
   import { go } from '../../../helpers/navigation.js'
@@ -189,7 +189,7 @@
                 class="min-w-0 flex-1 hover:text-indigo-600"
               >
                 <span class="block font-medium text-slate-800">{item.title}</span>
-                <span class="block truncate text-xs text-slate-400">{item.url}</span>
+                <span class="block truncate text-xs text-slate-600">{item.url}</span>
               </a>
               {#if owner}
                 <div class="flex gap-1">

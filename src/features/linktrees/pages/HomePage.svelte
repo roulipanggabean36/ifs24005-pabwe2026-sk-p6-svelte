@@ -1,4 +1,4 @@
-﻿<script>
+<script>
   import { onMount } from 'svelte'
   import { Link as LinkIcon, Plus, Trash2 } from 'lucide-svelte'
   import { useInput } from '../../../hooks/useInput.js'
@@ -173,7 +173,7 @@
               >
             </div>
             <p class="line-clamp-2 text-sm text-slate-500">{item.description}</p>
-            <div class="flex items-center justify-between text-xs text-slate-400">
+            <div class="flex items-center justify-between text-xs text-slate-600">
               <span>{item.author.name}</span>
               <span><strong>{item.total_links}</strong> tautan</span>
               {#if isOwner(item)}

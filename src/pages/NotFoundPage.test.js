@@ -11,3 +11,10 @@ describe('NotFoundPage', () => {
     expect(window.location.pathname).toBe('/')
   })
 })
+
+describe('NotFoundPage landmark', () => {
+  it('memakai landmark main', () => {
+    render(NotFoundPage)
+    expect(screen.getAllByRole('main')).toHaveLength(1)
+  })
+})

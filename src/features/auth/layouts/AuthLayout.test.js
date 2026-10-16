@@ -11,3 +11,11 @@ describe('AuthLayout', () => {
     expect(screen.getByText('isi halaman')).toBeInTheDocument()
   })
 })
+
+describe('AuthLayout landmark', () => {
+  it('isi dibungkus satu landmark main', () => {
+    const children = createRawSnippet(() => ({ render: () => '<p>isi</p>' }))
+    render(AuthLayout, { props: { children } })
+    expect(screen.getAllByRole('main')).toHaveLength(1)
+  })
+})

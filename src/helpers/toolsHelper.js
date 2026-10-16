@@ -1,12 +1,17 @@
-﻿import Swal from 'sweetalert2'
+﻿const loadSwal = async () => (await import('sweetalert2')).default
 
-export const showSuccess = (text) =>
-  Swal.fire({ icon: 'success', title: 'Berhasil', text, timer: 1800, showConfirmButton: false })
+export const showSuccess = async (text) => {
+  const Swal = await loadSwal()
+  return Swal.fire({ icon: 'success', title: 'Berhasil', text, timer: 1800, showConfirmButton: false })
+}
 
-export const showError = (text) =>
-  Swal.fire({ icon: 'error', title: 'Gagal', text })
+export const showError = async (text) => {
+  const Swal = await loadSwal()
+  return Swal.fire({ icon: 'error', title: 'Gagal', text })
+}
 
 export const confirmAction = async (text) => {
+  const Swal = await loadSwal()
   const result = await Swal.fire({
     icon: 'warning',
     title: 'Konfirmasi',

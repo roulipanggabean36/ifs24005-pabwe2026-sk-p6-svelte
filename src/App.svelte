@@ -1,4 +1,4 @@
-﻿<script>
+<script>
   import { onMount } from 'svelte'
   import { currentPath, navigate, initNavigation } from './helpers/navigation.js'
   import { isLoggedIn } from './features/auth/states/authStore.js'
@@ -24,7 +24,7 @@
 </script>
 
 {#if redirect}
-  <p class="p-6 text-slate-500">Mengalihkan...</p>
+  <main class="p-6 text-slate-600">Mengalihkan...</main>
 {:else if route.name === 'login'}
   <AuthLayout><LoginPage /></AuthLayout>
 {:else if route.name === 'register'}
