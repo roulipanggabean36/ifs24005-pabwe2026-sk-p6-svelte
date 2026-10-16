@@ -48,7 +48,7 @@
   </div>
   <button
     id="login-submit-button"
-    type="submit" id="login-submit-button"
+    type="submit"
     disabled={loading}
     class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-60"
   >
