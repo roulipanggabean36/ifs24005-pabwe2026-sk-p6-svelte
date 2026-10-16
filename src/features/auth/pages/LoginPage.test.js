@@ -47,3 +47,12 @@ describe('LoginPage', () => {
     expect(go).toHaveBeenCalledWith(expect.anything(), '/auth/register')
   })
 })
+
+describe('LoginPage selector Delcom Grading', () => {
+  it('memakai id yang dicari penguji', () => {
+    render(LoginPage)
+    expect(screen.getByLabelText('Email')).toHaveAttribute('id', 'login-email-input')
+    expect(screen.getByLabelText('Kata Sandi')).toHaveAttribute('id', 'login-password-input')
+    expect(screen.getByRole('button', { name: 'Masuk' })).toHaveAttribute('id', 'login-submit-button')
+  })
+})

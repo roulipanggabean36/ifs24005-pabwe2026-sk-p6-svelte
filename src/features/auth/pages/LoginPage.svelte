@@ -1,4 +1,4 @@
-﻿<script>
+<script>
   import { useInput } from '../../../hooks/useInput.js'
   import { loginUser } from '../states/authStore.js'
   import { navigate, go } from '../../../helpers/navigation.js'
@@ -25,9 +25,9 @@
 <form class="space-y-4" onsubmit={submit}>
   <h2 class="text-center text-lg font-semibold text-slate-700">Masuk ke akunmu</h2>
   <div>
-    <label for="email" class="mb-1 block text-sm font-medium text-slate-600">Email</label>
+    <label for="login-email-input" class="mb-1 block text-sm font-medium text-slate-600">Email</label>
     <input
-      id="email"
+      id="login-email-input"
       type="email"
       required
       value={$email}
@@ -36,9 +36,9 @@
     />
   </div>
   <div>
-    <label for="password" class="mb-1 block text-sm font-medium text-slate-600">Kata Sandi</label>
+    <label for="login-password-input" class="mb-1 block text-sm font-medium text-slate-600">Kata Sandi</label>
     <input
-      id="password"
+      id="login-password-input"
       type="password"
       required
       value={$password}
@@ -47,7 +47,8 @@
     />
   </div>
   <button
-    type="submit"
+    id="login-submit-button"
+    type="submit" id="login-submit-button"
     disabled={loading}
     class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-60"
   >
