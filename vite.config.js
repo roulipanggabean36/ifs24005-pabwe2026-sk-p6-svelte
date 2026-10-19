@@ -1,4 +1,4 @@
-﻿import { defineConfig, loadEnv } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { svelteTesting } from '@testing-library/svelte/vite'
 import tailwindcss from '@tailwindcss/vite'
@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
       },
       coverage: {
         provider: 'v8',
-        reporter: ['text', 'html'],
+        reporter: ['text', 'html', 'lcov'],
         include: ['src/**/*.{js,svelte}'],
         exclude: ['src/**/*.test.js', 'src/main.js', 'src/test-utils.js'],
         thresholds: {
