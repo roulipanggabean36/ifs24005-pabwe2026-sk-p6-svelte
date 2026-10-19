@@ -1,4 +1,4 @@
-﻿const loadSwal = async () => (await import('sweetalert2')).default
+const loadSwal = async () => (await import('sweetalert2')).default
 
 export const showSuccess = async (text) => {
   const Swal = await loadSwal()
@@ -33,5 +33,5 @@ export const formatDate = (value) => {
 export const resolveImageUrl = (path) => {
   if (!path || path.endsWith('/')) return null
   if (/^https?:\/\//i.test(path)) return path
-  return `${new URL(import.meta.env.VITE_DELCOM_BASEURL).origin}/${path.replace(/^\/+/, '')}`
+  return `${new URL(import.meta.env.VITE_DELCOM_BASEURL).origin}/${path.replace(/^\/+/g, '')}`
 }
