@@ -1,14 +1,14 @@
-﻿import { writable } from 'svelte/store'
+import { writable } from 'svelte/store'
 
-export const currentPath = writable(window.location.pathname)
+export const currentPath = writable(globalThis.location.pathname)
 
 export const navigate = (path, { replace = false } = {}) => {
   if (replace) {
-    window.history.replaceState({}, '', path)
+    globalThis.history.replaceState({}, '', path)
   } else {
-    window.history.pushState({}, '', path)
+    globalThis.history.pushState({}, '', path)
   }
-  currentPath.set(window.location.pathname)
+  currentPath.set(globalThis.location.pathname)
 }
 
 export const go = (event, path) => {
@@ -27,7 +27,7 @@ export const go = (event, path) => {
 }
 
 export const initNavigation = () => {
-  const sync = () => currentPath.set(window.location.pathname)
-  window.addEventListener('popstate', sync)
-  return () => window.removeEventListener('popstate', sync)
+  const sync = () => currentPath.set(globalThis.location.pathname)
+  globalThis.addEventListener('popstate', sync)
+  return () => globalThis.removeEventListener('popstate', sync)
 }

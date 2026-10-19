@@ -6,6 +6,11 @@ export const removeToken = () => localStorage.removeItem(TOKEN_KEY)
 
 const baseUrl = () => import.meta.env.VITE_DELCOM_BASEURL
 
+const buildBody = (body, isForm) => {
+  if (body === undefined || isForm) return body
+  return JSON.stringify(body)
+}
+
 export const apiRequest = async (endpoint, { method = 'GET', body, auth = true } = {}) => {
   const headers = { Accept: 'application/json' }
   const isForm = body instanceof FormData
@@ -25,7 +30,7 @@ export const apiRequest = async (endpoint, { method = 'GET', body, auth = true }
     method,
     headers,
     priority: 'low',
-    body: body === undefined ? undefined : isForm ? body : JSON.stringify(body)
+    body: buildBody(body, isForm)
   })
 
   let json = null
@@ -35,7 +40,7 @@ export const apiRequest = async (endpoint, { method = 'GET', body, auth = true }
     json = null
   }
 
-  if (!response.ok || (json && json.status === 'fail')) {
+  if (!response.ok || json?.status === 'fail') {
     throw new Error(json?.message || `Permintaan gagal (${response.status})`)
   }
 
